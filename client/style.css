@@ -12,6 +12,10 @@ body {
 body {
 	font-family: Consolas, monaco, monospace;
 }
+.form-content {
+  color: black;
+  border: 1px
+}
 .row {
 	font-size: 1.8rem;
 	border: 5px 5px;

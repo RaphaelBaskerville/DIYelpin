@@ -1,13 +1,20 @@
+// all you need is request
 var request = require('request');
 
+// create a reference to root of the project
 var baseUrl = 'http://localhost:3000/';
 
+// outer describe wraps all our tests
 describe('server.js', function() {
 
   describe('GET /', function() {
+    // it statements test specific functionality.
     it('returns status code 200', function(done) {
+
+      // spec makes a get request at baseUrl.
       request.get(baseUrl).on('response', function(response) {
-        console.log('test1', response.statusCode);
+
+        // we expect the response code to be 200.
         expect(response.statusCode).toBe(200);
         done();
       });
@@ -28,6 +35,8 @@ describe('server.js', function() {
   describe('POST /authenticate', function() {
 
     it('returns status code 200 and a user object if user and password match', function(done) {
+
+      // needed a slightly different syntax to get post request tests to work.
       request({
         url: baseUrl + 'authenticate',
         method: 'POST',
@@ -89,6 +98,7 @@ describe('server.js', function() {
       });
     });
 
+    // NOTE test
     xit('should return 200 on success MUST RESET DB OR USE A NEW USERNAME EVERY TIME FOR THIS TO WORK', function(done) {
       request({
         url: baseUrl + 'createUser',
